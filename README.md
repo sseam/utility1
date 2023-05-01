@@ -15,6 +15,8 @@ Apps that use some of the sensors on your Android smartphone.
 
 ### 스크린샷
 ![스크린샷](/app/screenshot/screenshort_utility.png)
+![스크린샷](/app/screenshot/screenshort_utility1.png)
 
 ### 라이선스
+MIT License
 MIT License
