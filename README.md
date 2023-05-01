@@ -2,7 +2,7 @@
 Apps that use some of the sensors on your Android smartphone.
 
 ## 소개
-이 프로그램은 Android 스마트폰의 몇 가지 센서를 이용한 프로그램을 작성하려는 처음 배우는 사용자를 위해 만들어졌습니다.
+이 프로그램은 Android 스마트폰의 몇 가지 센서를 이용한 프로그램을 작성하려는 처음 배우는 사용자에게 가이드를 제공합니다.
 
 ## 앱 속의 앱
 - 자기장 측정기 : 자기장의 세기를 측정할 수 있습니다.
@@ -19,4 +19,4 @@ Apps that use some of the sensors on your Android smartphone.
 
 ### 라이선스
 MIT License
-MIT License
+
