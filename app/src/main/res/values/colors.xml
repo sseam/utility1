@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="RetroColor1">#FFE91E63</color>
+    <color name="RetroColor2">#FFE06A4E</color>
+    <color name="RetroColor3">#FFDEB853</color>
+    <color name="RetroColor4">#FFE2D9A2</color>
+    <color name="RetroColor5">#FF789F8A</color>
+    <color name="RetroColor6">#FF00674B</color>
+    <color name="RetroColor7">#FF0A373A</color>
+    <color name="RetroColor8">#FF6F5643</color>
+    <color name="RetroColor9">#FF546E7A</color>
+    <color name="RetroColor10">#FF6699CC</color>
+    <color name="RetroColor11">#FF1E88E5</color>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Measure</string>
+
+    <string name="title_magnetic_field">Magnetic\nField\nMeter</string>
+    <string name="title_compass">Compass</string>
+    <string name="title_level">Level</string>
+    <string name="title_angle">Angle</string>
+</resources>
