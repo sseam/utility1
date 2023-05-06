@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Measure</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9912818029252604/1006161920</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="title_magnetic_field">Magnetic\nField\nMeter</string>
     <string name="title_compass">Compass</string>

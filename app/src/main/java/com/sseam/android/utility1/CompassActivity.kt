@@ -11,6 +11,9 @@ import android.view.MenuItem
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.sseam.android.utility1.databinding.ActivityCompassBinding
 
 
@@ -29,6 +32,7 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var _binding : ActivityCompassBinding
 
     private lateinit var simpleKalmanFilter: SimpleKalmanFilter
+    private lateinit var adView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +43,11 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setTitle(R.string.title_compass)
+
+        MobileAds.initialize(this) {}
+        adView = _binding.adView
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         compassImage = _binding.ivCompass
 
@@ -54,6 +63,7 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
 
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
         sensorManager.registerListener(this, magnetometer, SensorManager.SENSOR_DELAY_NORMAL)
+        adView.resume()
     }
 
     override fun onPause() {
@@ -61,6 +71,7 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
 
         sensorManager.unregisterListener(this, accelerometer)
         sensorManager.unregisterListener(this, magnetometer)
+        adView.pause()
     }
 
     override fun onSensorChanged(event: SensorEvent) {
@@ -128,6 +139,11 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    public override fun onDestroy() {
+        adView.destroy();
+        super.onDestroy()
     }
 
 }

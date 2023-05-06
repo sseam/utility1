@@ -9,6 +9,9 @@ import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.sseam.android.utility1.databinding.ActivityMagneticSensorBinding
 
 class MagneticSensorActivity : AppCompatActivity(), SensorEventListener {
@@ -17,6 +20,7 @@ class MagneticSensorActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var magneticSensor: Sensor
 
     private lateinit var _binding : ActivityMagneticSensorBinding
+    private lateinit var adView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,11 @@ class MagneticSensorActivity : AppCompatActivity(), SensorEventListener {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setTitle(R.string.title_magnetic_field)
 
+        MobileAds.initialize(this) {}
+        adView = _binding.adView
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
         // SensorManager 객체 생성
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         // 자기장 센서 객체 생성
@@ -38,23 +47,22 @@ class MagneticSensorActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-
         // 자기장 센서 리스너 등록
         sensorManager.registerListener(this, magneticSensor, SensorManager.SENSOR_DELAY_NORMAL)
+        adView.resume()
 
     }
 
     override fun onPause() {
         super.onPause()
-
         // 자기장 센서 리스너 해제
         sensorManager.unregisterListener(this)
+        adView.pause()
     }
 
     override fun onSensorChanged(event: SensorEvent) {
         val magneticField = event.values[0]
         _binding.magneticTextView.text = String.format("%.2f", magneticField) + " μT"
-
     }
 
     override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
@@ -78,6 +86,11 @@ class MagneticSensorActivity : AppCompatActivity(), SensorEventListener {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    public override fun onDestroy() {
+        adView.destroy();
+        super.onDestroy()
     }
 
 }

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">측정기</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9912818029252604/1006161920</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="title_magnetic_field">자기장\n측정기</string>
     <string name="title_compass">나침반</string>

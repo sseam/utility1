@@ -10,6 +10,9 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.sseam.android.utility1.databinding.ActivityLevelSensorBinding
 import java.lang.Math.sin
 
@@ -22,6 +25,7 @@ class LevelSensorActivity : AppCompatActivity(), SensorEventListener {
     private var geomagnetic = FloatArray(3)
 
     private lateinit var _binding : ActivityLevelSensorBinding
+    private lateinit var adView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,11 @@ class LevelSensorActivity : AppCompatActivity(), SensorEventListener {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setTitle(R.string.title_level)
+
+        MobileAds.initialize(this) {}
+        adView = _binding.adView
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
@@ -51,11 +60,13 @@ class LevelSensorActivity : AppCompatActivity(), SensorEventListener {
         magnetometer?.also { sensor ->
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
         }
+        adView.resume()
     }
 
     override fun onPause() {
         super.onPause()
         sensorManager.unregisterListener(this)
+        adView.pause()
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
@@ -104,6 +115,11 @@ class LevelSensorActivity : AppCompatActivity(), SensorEventListener {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    public override fun onDestroy() {
+        adView.destroy();
+        super.onDestroy()
     }
 
 }
