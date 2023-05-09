@@ -7,4 +7,6 @@
     <string name="title_compass">Compass</string>
     <string name="title_level">Level</string>
     <string name="title_angle">Angle</string>
+
+    <string name="msg_backkey">Press again to exit.</string>
 </resources>

@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 if (result < 2000) {
                     finish()
                 } else {
-                    Toast.makeText(this@MainActivity, "한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, R.string.msg_backkey, Toast.LENGTH_SHORT).show()
                     BackKeyBeforeTime = System.currentTimeMillis()
                 }
             }

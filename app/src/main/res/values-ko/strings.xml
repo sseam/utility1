@@ -8,4 +8,6 @@
     <string name="title_compass">나침반</string>
     <string name="title_level">수평계</string>
     <string name="title_angle">각도</string>
+
+    <string name="msg_backkey">"한 번 더 누르면 종료됩니다."</string>
 </resources>
