@@ -40,7 +40,7 @@ class MagneticSensorActivity : AppCompatActivity(), SensorEventListener {
         // SensorManager 객체 생성
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         // 자기장 센서 객체 생성
-        magneticSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+        magneticSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!!
 
 
     }

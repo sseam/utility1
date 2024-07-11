@@ -52,8 +52,8 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
         compassImage = _binding.ivCompass
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)!!
+        magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!!
 
         simpleKalmanFilter = SimpleKalmanFilter(q = 0.1f, r = 0.1f)
     }
