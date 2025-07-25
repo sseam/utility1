@@ -10,4 +10,12 @@
     <string name="title_angle">각도</string>
 
     <string name="msg_backkey">"한 번 더 누르면 종료됩니다."</string>
+    <string name="msg_perfectly_level">완벽한 수평이에요!</string>
+    <string name="msg_strong_magnetic">⚠ 강한 자기장 감지: 주변 환경을 확인하세요.</string>
+
+    <string name="SENSOR_STATUS_UNRELIABLE">캘리브레이션 필요(폰을 8자로 흔드세요)</string>
+    <string name="SENSOR_STATUS_ACCURACY_LOW">정확도 낮음</string>
+    <string name="SENSOR_STATUS_ACCURACY_MEDIUM">정확도 보통</string>
+    <string name="SENSOR_STATUS_ACCURACY_HIGH">정확도 높음</string>
+    <string name="SENSOR_STATUS_UNKNOWN">정확도 알 수 없음</string>
 </resources>

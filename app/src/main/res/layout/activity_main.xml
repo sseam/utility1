@@ -3,12 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
         app:elevation="0dp">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -33,11 +35,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/RetroColor1"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="32dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toStartOf="@+id/button2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline1">
+            app:layout_constraintTop_toTopOf="@+id/guideline1"
+            app:layout_constraintVertical_bias="0.444">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,7 +58,7 @@
             android:layout_height="110dp"
             android:layout_margin="8dp"
             app:cardBackgroundColor="@color/RetroColor3"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="32dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toStartOf="@+id/button3"
             app:layout_constraintStart_toEndOf="@+id/button1"
@@ -80,7 +83,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/RetroColor11"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="32dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button2"

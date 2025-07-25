@@ -9,4 +9,12 @@
     <string name="title_angle">Angle</string>
 
     <string name="msg_backkey">Press again to exit.</string>
+    <string name="msg_perfectly_level">It\'s perfectly level!</string>
+    <string name="msg_strong_magnetic">⚠ Strong magnetic field detection: Check your surroundings.</string>
+
+    <string name="SENSOR_STATUS_UNRELIABLE">Calibration required(Please draw a figure-eight)</string>
+    <string name="SENSOR_STATUS_ACCURACY_LOW">Low accuracy</string>
+    <string name="SENSOR_STATUS_ACCURACY_MEDIUM">Medium accuracy</string>
+    <string name="SENSOR_STATUS_ACCURACY_HIGH">High accuracy</string>
+    <string name="SENSOR_STATUS_UNKNOWN">Accuracy unknown</string>
 </resources>
