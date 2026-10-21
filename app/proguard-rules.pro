@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Room-generated databases are instantiated via reflection (no-arg constructor)
+-keep class * extends androidx.room.RoomDatabase {
+    <init>();
+}

@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -10,13 +9,13 @@ android {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
     def admob_app_id = properties.getProperty('admob.app.id')
 
-    compileSdkVersion 36
+    compileSdkVersion 37
     defaultConfig {
         applicationId "com.sseam.android.utility1"
         minSdkVersion 26
-        targetSdkVersion 36
-        versionCode 6
-        versionName "1.0"
+        targetSdkVersion 37
+        versionCode 7
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -25,8 +24,18 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            ndk {
+                debugSymbolLevel 'SYMBOL_TABLE'
+            }
+        }
+        releaseTest {
+            initWith release                          // Same R8/minify settings as release
+            signingConfig signingConfigs.debug        // Local test only
+            applicationIdSuffix ".test"               // Installs side by side with the debug build
+            matchingFallbacks = ['release']           // Only needed if you have library modules
         }
     }
 
@@ -35,16 +44,17 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = '17'
-    }
+
+}
+
+kotlin {
+    jvmToolchain(21)
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.16.0'
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'com.google.android.material:material:1.12.0'
